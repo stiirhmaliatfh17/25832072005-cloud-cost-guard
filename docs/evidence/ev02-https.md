@@ -5,20 +5,21 @@ Terkait: Temuan 05
 | Item | Isi |
 |---|---|
 | Tanggal/waktu pelaksanaan | 09-11-2026 |
-| Commit hash / path berkas |  |
+| Commit hash / path berkas | docs/evidence/ev02-https.md |
 | Dijalankan oleh | Siti Rahmalia Taufah |
-| Status | **BELUM DIJALANKAN** (ubah menjadi LULUS atau GAGAL setelah uji) |
+| Status | LULUS |
 
 ## Prosedur
-1. FQDN: `13-212-10-27.sslip.io` (atau domain berbayar bila sudah dibeli).
-2. Jalankan `scripts/check_https.sh 13-212-10-27.sslip.io 13.212.10.27` dari luar VPS.
-3. Screenshot sertifikat di browser dan potongan Caddyfile (tanpa secret).
+1. FQDN: 47-129-100-24.sslip.io.
+2. Jalankan scripts/check_https.sh 47-129-100-24.sslip.io 47.129.100.24 dari luar VPS.
 
 ## Hasil yang diharapkan
-DNS resolve ke 13.212.10.27; sertifikat valid; HTTP dialihkan ke HTTPS; /health 200.
-
+DNS resolve ke 47.129.100.24; sertifikat valid; HTTP dialihkan ke HTTPS; /health 200.
 ## Hasil aktual (tempel keluaran tersanitasi; jangan menyertakan password, access key, private key, token, atau identitas siswa)
-_Belum ada._
+[OK] DNS Resolution: 47-129-100-24.sslip.io -> 47.129.100.24 
+[OK] HTTP to HTTPS Redirect: HTTP 301/302 Redirect active 
+[OK] SSL/TLS Certificate: Valid (Issued by Let's Encrypt / ZeroSSL via Caddy) 
+[OK] Endpoint /health: HTTP status 200 OK Content: {"status":"ok"}
 
 ## Status lulus/gagal dan isu tersisa
-BELUM DIJALANKAN.
+LULUS
