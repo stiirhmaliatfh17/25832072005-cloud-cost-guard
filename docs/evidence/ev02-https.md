@@ -4,7 +4,7 @@ Terkait: Temuan 05
 
 | Item | Isi |
 |---|---|
-| Tanggal/waktu pelaksanaan | (isi saat dijalankan) |
+| Tanggal/waktu pelaksanaan | 9 november 2026 |
 | Commit hash / path berkas | (isi) |
 | Dijalankan oleh | Siti Rahmalia Taufah |
 | Status | **BELUM DIJALANKAN** (ubah menjadi LULUS atau GAGAL setelah uji) |
