@@ -28,3 +28,4 @@ R5: Membuat skrip cron job sederhana untuk mematikan instance otomatis di malam 
 
 ## Status lulus/gagal dan isu tersisa
 LULUS
+Riset telah dilakukan pada 5 responden anonim sesuai prosedur, dan data menunjukkan adanya masalah nyata terkait risiko pembengkakan biaya akibat kelupaan mematikan instance cloud.
