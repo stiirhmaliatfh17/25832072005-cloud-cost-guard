@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "BacaBiayaSaja",
+      "Effect": "Allow",
+      "Action": ["ce:GetCostAndUsage", "ce:GetCostForecast", "ce:GetDimensionValues", "ce:GetTags", "budgets:ViewBudget"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "TolakMutasiDanAdministrasi",
+      "Effect": "Deny",
+      "Action": ["iam:*", "ec2:*", "budgets:Modify*", "ce:Create*", "ce:Update*", "ce:Delete*", "organizations:*"],
+      "Resource": "*"
+    }
+  ]
+}
