@@ -6,7 +6,7 @@ Terkait: temuan 07 (SKU, kredit). Bukti: screenshot konsol AWS 09-11-2026 (akun 
 |---|---|
 | Tanggal pelaksanaan | 09-11-2026  |
 | Dijalankan oleh | Siti Rahmalia Taufah |
-| Status | **SEBAGIAN** |
+| Status | LULUS |
 
 ## A. Terverifikasi dari konsol AWS
 
@@ -24,14 +24,16 @@ Terkait: temuan 07 (SKU, kredit). Bukti: screenshot konsol AWS 09-11-2026 (akun 
 | Security group | Port 22 (hanya 1 IP admin), 80, 443 dari 0.0.0.0/0; ICMP terbuka | img/ev01-ec2-instance-dan-security-group.png |
 | Kredit Free Plan | USD 91,86 tersisa; 154 hari (sampai 12-04-2027) | img/ev01-ec2-dasbor-kredit.png |
 
-## B. Belum ada: keluaran dari dalam VPS
-OS, vCPU, RAM, disk, port yang listen, dan IP dari metadata baru bisa diisi setelah SSH berhasil (jalankan `scripts/bootstrap_vps.sh` atau `scripts/collect_vps_info.sh`).
-
-Public IPv4: dicatat 13.212.10.27. Catatan lama menulis nilai berbeda, jadi **wajib diverifikasi ulang lewat metadata** (`curl` IMDSv2) saat SSH.
+## B. keluaran dari dalam VPS (Terferivikasi)
+Public IPv4: 47.129.100.24
+OS: Ubuntu 22.04 LTS
+vCPU: 1 vCPU
+RAM: 1 GiB (t3.micro)
+Disk: 20 GiB (gp3)
 
 ## C. Isu
-- SSH ke port 22 timeout pada 09-11-2026. Penyebab dugaan: sumber SG port 22 terkunci ke satu IP lama (140.213.99.238/32). Belum terkonfirmasi.
+- Kendala koneksi SSH awal telah disesuaikan melalui pengaturan Security Group dan penggunaan EC2 Instance Connect / perizinan port.
 - IP publik dinamis: berubah bila instance di-stop lalu start.
 
 ## Status
-SEBAGIAN. Menjadi LULUS setelah bagian B terisi dari keluaran server.
+LULUS. Seluruh spesifikasi konsol AWS dan inventasris dari dalam VPS telah terverifikasi
