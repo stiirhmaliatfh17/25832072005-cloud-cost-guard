@@ -36,4 +36,4 @@ Disk: 20 GiB (gp3)
 - IP publik dinamis: berubah bila instance di-stop lalu start.
 
 ## Status
-LULUS. Seluruh spesifikasi konsol AWS dan inventasris dari dalam VPS telah terverifikasi
+LULUS. Seluruh spesifikasi konsol AWS dan inventaris dari dalam VPS telah terverifikasi
