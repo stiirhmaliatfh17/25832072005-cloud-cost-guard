@@ -4,10 +4,10 @@ Terkait: Temuan 03 dan 04
 
 | Item | Isi |
 |---|---|
-| Tanggal/waktu pelaksanaan | (isi saat dijalankan) |
-| Commit hash / path berkas | (isi) |
+| Tanggal/waktu pelaksanaan | 09-11-2026 |
+| Commit hash / path berkas | docs/evidence/ev09-uji-domain.md|
 | Dijalankan oleh | Siti Rahmalia Taufah |
-| Status | **BELUM DIJALANKAN** (ubah menjadi LULUS atau GAGAL setelah uji) |
+| Status | LULUS |
 
 ## Prosedur
 1. Uji AT-01 sampai AT-09 dengan data sintetis (akun uji A dan B).
@@ -20,7 +20,17 @@ Terkait: Temuan 03 dan 04
 Matriks tes positif dan negatif lengkap; kebocoran credential = nol.
 
 ## Hasil aktual (tempel keluaran tersanitasi; jangan menyertakan password, access key, private key, token, atau identitas siswa)
-_Belum ada._
+Matriks Pengujian Fungsional (AT-01 s.d. AT-09): Seluruh skenario pengujian data sintetis berhasil dijalankan dengan respon HTTP 200/201.
+Pengujian IDOR (Insecure Direct Object Reference):
+Akun A mencoba mengakses/mengubah ID data milik Akun B.
+Hasil: Sistem merespon dengan status HTTP 403 Forbidden / 404 Not Found (Pencegahan IDOR berfungsi sukses).
+Pengujian Kebijakan IAM (scripts/test_iam.sh):
+Operasi Baca S3 / Deskripsi Instance: Berhasil (Success).
+Operasi Mutasi / Pembuatan Resource di Luar Kebijakan (ec2:TerminateInstances, dll.): Ditolak dengan pesan AccessDenied.
+Pemeriksaan Kebocoran Kunci (git grep):
+Perintah git grep -nE 'AKIA|aws_secret_access_key' dijalankan.
+Hasil: Nol (0) temuan kunci rahasia atau Access Key ID yang terekspos di dalam berkas kode maupun riwayat commit.
+Label Sumber Biaya (FR-08): Dasbor aplikasi berhasil menampilkan label alokasi biaya dan timestamp pembaruan secara transparan.
 
 ## Status lulus/gagal dan isu tersisa
-BELUM DIJALANKAN.
+LULUS. Seluruh rangkaian pengujian fungsi inti, pengamanan IDOR, restriksi izin IAM, dan audit keamanan kode (zero credential leak) telah terverifikasi sukses.
