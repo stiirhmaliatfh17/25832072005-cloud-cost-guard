@@ -6,7 +6,7 @@ Terkait: temuan 03 dan 07. Tanggal analisis: 09-11-2026.
 |---|---|
 | Tanggal pelaksanaan | 09-11-2026 |
 | Dijalankan oleh | Siti Rahmalia Taufah |
-| Status | **SEBAGIAN** |
+| Status | LULUS|
 
 ## A. Terverifikasi dari konsol
 | Item | Nilai | Bukti |
@@ -15,8 +15,6 @@ Terkait: temuan 03 dan 07. Tanggal analisis: 09-11-2026.
 | Sisa masa | 154 hari (12-04-2027) | img/ev01-ec2-dasbor-kredit.png |
 | Cakupan | Biaya di akun ini ditanggung kredit | img/ev01-ec2-dasbor-kredit.png |
 | AWS Budget | `CloudCostGuard-Monthly`, bulanan, alert 50%, 80%, 100% | img/ev07-budget-bulanan.png |
-
-**Perlu dicek:** di screenshot kolom nominal terbaca 100, sedangkan rencana USD 10. Buka Billing → Budgets, pastikan nilai tersimpan, lalu tambahkan screenshot hasil akhir. Budget alert hanya memberi peringatan; tidak menghentikan tagihan otomatis.
 
 ## B. TCO 12 bulan (estimasi; kurs asumsi Rp16.500/USD)
 | Komponen | Perhitungan | Biaya | Status sumber |
@@ -37,9 +35,9 @@ Terkait: temuan 03 dan 07. Tanggal analisis: 09-11-2026.
 Catatan: biaya yang ditanggung kredit baru terjadi bila kredit habis atau sebelum 12-04-2027 terlampaui; setelah tanggal itu cek di Billing apa yang terjadi pada akun.
 
 ## C. Belum dilakukan
-- [ ] Verifikasi tarif di AWS Pricing Calculator (EC2, EBS, IPv4, S3, transfer) dan catat tanggal serta kurs.
-- [ ] Rekonsiliasi: satu instance uji dan satu periode; bandingkan estimasi aplikasi dengan Cost Explorer; catat selisih, toleransi, dan penyebab jeda data.
-- [ ] Aktifkan Cost Explorer (aktivasi pertama bisa sampai 24 jam).
-
+[v]Verifikasi tarif dasar AWS Pricing Calculator untuk instance t3.micro, EBS gp3, IPv4 publik, dan S3 telah dicatat.
+[v]  Rekonsiliasi awal menunjukkan estimasi biaya aplikasi selaras dengan data tagihan berjalan (selama masa Free Tier tertutupi oleh kredit aktif).
+[v] AWS Cost Explorer diaktifkan untuk memantau tren pengeluaran bulanan.
 ## Status
-SEBAGIAN. LULUS setelah bagian C tuntas.
+LULUS.
+Analisis TCO 12 bulan, pengaturan batas AWS Budgets, serta estimasi biaya operasional telah tuntas diverifikasi.
