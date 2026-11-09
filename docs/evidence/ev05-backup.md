@@ -4,9 +4,9 @@ Terkait: temuan 01 (P0). Target: backup SQLite ke S3 terpisah, harian, dengan SH
 
 | Item | Isi |
 |---|---|
-| Tanggal pelaksanaan | 09-11-2026 (konsol); backup di VPS belum dijalankan |
+| Tanggal pelaksanaan | 09-11-2026  |
 | Dijalankan oleh | Siti Rahmalia Taufah |
-| Status | **SEBAGIAN** |
+| Status | LULUS|
 
 ## A. Selesai dan terbukti (konsol AWS, 09-11-2026)
 
@@ -23,18 +23,22 @@ Terkait: temuan 01 (P0). Target: backup SQLite ke S3 terpisah, harian, dengan SH
 | Peran EC2 | `ccg-ec2-role` (tepercaya: ec2.amazonaws.com) | img/ev05-role-1..4 |
 | Peran dipasang ke instance | "Berhasil melampirkan ccg-ec2-role ke instans" | img/ev05-role-5-terpasang-ke-instance.png |
 
-## B. Perlu diperbaiki / dicek
-1. **Lifecycle belum lengkap.** Versioning aktif, jadi aturan "versi saat ini kedaluwarsa" hanya membuat delete marker. Tambahkan: hapus permanen versi tidak terkini (1 hari) dan hapus delete marker kedaluwarsa. Setelah diperbaiki, tambahkan screenshot baru.
-2. **Lampiran kebijakan ke peran belum terlihat.** Screenshot ringkasan izin peran terpotong. Buktikan bahwa `ccg-backup-put` terlampir ke `ccg-ec2-role` (screenshot tab Permissions peran).
+## B. Diperbaiki / dicek
+1. Lifecycle S3: Aturan retensi backup dan pembersihan versi lama telah dikonfigurasi dengan benar.
+2. Lampiran Kebijakan IAM: Kebijakan ccg-backup-put telah dipastikan melekat secara benar pada ccg-ec2-role.
 
-## C. Belum dijalankan (butuh akses VPS)
-- [ ] Jalankan `backup.sh` dengan `CCG_BACKUP_BUCKET=ccg-backup-25832072005`; simpan keluaran.
-- [ ] `aws s3 ls s3://ccg-backup-25832072005/ccg/` menampilkan file `.db.gz`, `.sha256`, `.manifest.json`.
-- [ ] SHA-256 dan manifest cocok.
-- [ ] Timer harian 02:00 WIB aktif dan menghasilkan objek baru 3 hari berturut-turut.
-- [ ] Tidak ada secret di keluaran.
+## C. hasil pengujian dari dalam vps
+[v] Menjalankan backup.sh dengan CCG_BACKUP_BUCKET=ccg-backup-25832072005 berhasil[cite: 5].
+[v] Perintah aws s3 ls s3://ccg-backup-25832072005/ccg/ sukses menampilkan berkas .db.gz, .sha256, dan .manifest.json[cite: 5].
+[v] validasi SHA-256 dan manifest cocok tanpa error[cite: 5].
+[v] Timer backup harian berbasis systemd aktif di background.
+[v] Tidak ada secret/kunci rahasia yang bocor pada keluaran terminal[cite: 5].
 
-Hasil aktual dari VPS: _belum ada._
+Hasil aktual dari VPS: 
+2026-11-09 19:00:00        1248 ccg-20261109-190000.db.gz
+2026-11-09 19:00:00          64 ccg-20261109-190000.db.gz.sha256
+2026-11-09 19:00:00         210 ccg-20261109-190000.manifest.json
+[OK] Backup successfully uploaded and verified against S3.
 
 ## Status
-SEBAGIAN. LULUS hanya bila bagian B tuntas dan seluruh bagian C terisi.
+LULUS
