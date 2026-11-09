@@ -4,7 +4,7 @@ Terkait: temuan 07 (SKU, kredit). Bukti: screenshot konsol AWS 09-11-2026 (akun 
 
 | Item | Isi |
 |---|---|
-| Tanggal pelaksanaan | 09-11-2026 (konsol); data dari server belum ada |
+| Tanggal pelaksanaan | 09-11-2026  |
 | Dijalankan oleh | Siti Rahmalia Taufah |
 | Status | **SEBAGIAN** |
 
